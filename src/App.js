@@ -7,6 +7,8 @@ export default function App() {
   const [isQuoteVisible, setIsQuoteVisible] = useState(true)
   const [author, setAuthor] = useState('')
 
+  const [color, setColor] = useState('#2E2E2E')
+
   useEffect(() => {
     fetchQuote()
   }, [])
@@ -25,29 +27,38 @@ export default function App() {
 
   const handleNewQuote = () => {
     setIsQuoteVisible(false)
+    setColor(generateRandomColor())
     setTimeout(() => {
       fetchQuote()
     }, 300)
   }
 
+  const generateRandomColor = () => {
+    let red = Math.floor(Math.random() * 156) + 100
+    let green = Math.floor(Math.random() * 156) + 100
+    let blue = Math.floor(Math.random() * 156) + 100
+    return `rgb(${red}, ${green}, ${blue})`
+  }
+
   return (
-    <div className='wrapper'>
+    <div className='wrapper' style={{backgroundColor: color}}>
       <div id='quote-box'>
-        <h1 id='text' className={!isQuoteVisible ? 'invisible' : ''}>
+        <h1 id='text' className={!isQuoteVisible ? 'invisible' : ''} style={{color: color}}>
           <FaQuoteLeft style={{ marginRight: 10 }}/>
           {quote}
         </h1>
-        <p id='author' className={!isQuoteVisible ? 'invisible' : ''}>- {author}</p>
+        <p id='author' className={!isQuoteVisible ? 'invisible' : ''} style={{color: color}}>- {author}</p>
         <div className='button-container'>
           <a 
             id='tweet-quote' 
             href={`https://twitter.com/intent/tweet?text="${quote}" - ${author}`} 
             target='_blank' 
             rel='noopener noreferrer'
+            style={{backgroundColor: color}}
           >
             <FaXTwitter size={20}/>
           </a>
-          <button id='new-quote' onClick={handleNewQuote}>New quote</button>
+          <button id='new-quote' onClick={handleNewQuote} style={{backgroundColor: color}}>New quote</button>
         </div>
       </div>
     </div>
