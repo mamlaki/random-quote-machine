@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FaXTwitter, FaQuoteLeft, FaGithub, FaGit } from 'react-icons/fa6'
+import { FaXTwitter, FaQuoteLeft, FaGithub } from 'react-icons/fa6'
 import './App.css'
 
 export default function App() {
