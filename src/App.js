@@ -28,7 +28,14 @@ export default function App() {
         </h1>
         <p id='author'>- {author}</p>
         <div className='button-container'>
-          <a id='tweet-quote' href='/' target='_blank'><FaXTwitter size={20}/></a>
+          <a 
+            id='tweet-quote' 
+            href={`https://twitter.com/intent/tweet?text="${quote}" - ${author}`} 
+            target='_blank' 
+            rel='noopener noreferrer'
+          >
+            <FaXTwitter size={20}/>
+          </a>
           <button id='new-quote' onClick={fetchQuote}>New quote</button>
         </div>
       </div>
