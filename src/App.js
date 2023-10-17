@@ -24,12 +24,12 @@ export default function App() {
       <div id='quote-box'>
         <h1 id='text'>
           <FaQuoteLeft style={{ marginRight: 10 }}/>
-          { quote }
+          {quote}
         </h1>
-        <p id='author'>- { author }</p>
+        <p id='author'>- {author}</p>
         <div className='button-container'>
           <a id='tweet-quote' href='/' target='_blank'><FaXTwitter size={20}/></a>
-          <button id='new-quote'>New quote</button>
+          <button id='new-quote' onClick={fetchQuote}>New quote</button>
         </div>
       </div>
     </div>

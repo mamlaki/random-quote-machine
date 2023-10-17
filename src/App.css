@@ -39,6 +39,7 @@ a {
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s;
+  font-weight: bold;
 }
 
 button:hover,
