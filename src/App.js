@@ -34,10 +34,10 @@ export default function App() {
   }
 
   const generateRandomColor = () => {
-    let red = Math.floor(Math.random() * 156) + 100
-    let green = Math.floor(Math.random() * 156) + 100
-    let blue = Math.floor(Math.random() * 156) + 100
-    return `rgb(${red}, ${green}, ${blue})`
+    let hue = Math.floor(Math.random() * 361)
+    let saturation = Math.floor(Math.random() * 16) + 15
+    let lightness = Math.floor(Math.random() * 16) + 60
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`
   }
 
   return (
