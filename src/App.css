@@ -20,10 +20,12 @@
   color: #333;
   width: 60%;
   max-width: 600px;
+  transition: height 0.5s;
 }
 
 #text,
-#author {
+#author,
+.button-container {
   transition: opacity 0.5s;
 }
 

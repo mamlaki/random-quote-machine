@@ -8,6 +8,14 @@ export default function App() {
   const [author, setAuthor] = useState('')
 
   const [color, setColor] = useState('#2E2E2E')
+  
+  const [quoteBoxHeight, setQuoteBoxHeight] = useState('auto')
+
+  useEffect(() => {
+    const textBox = document.getElementById('text')
+    const authorBox = document.getElementById('author')
+    setQuoteBoxHeight(textBox.clientHeight + authorBox.clientHeight + 100)
+  }, [quote, author])
 
   useEffect(() => {
     fetchQuote()
@@ -42,13 +50,13 @@ export default function App() {
 
   return (
     <div className='wrapper' style={{backgroundColor: color}}>
-      <div id='quote-box'>
+      <div id='quote-box' style={{height: quoteBoxHeight}}>
         <h1 id='text' className={!isQuoteVisible ? 'invisible' : ''} style={{color: color}}>
           <FaQuoteLeft style={{ marginRight: 10 }}/>
           {quote}
         </h1>
         <p id='author' className={!isQuoteVisible ? 'invisible' : ''} style={{color: color}}>- {author}</p>
-        <div className='button-container'>
+        <div className={`button-container ${!isQuoteVisible ? 'invisible' : ''}`}>
           <a 
             id='tweet-quote' 
             href={`https://twitter.com/intent/tweet?text="${quote}" - ${author}`} 
