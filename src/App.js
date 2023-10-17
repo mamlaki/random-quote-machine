@@ -4,6 +4,7 @@ import './App.css'
 
 export default function App() {
   const [quote, setQuote] = useState('')
+  const [isQuoteVisible, setIsQuoteVisible] = useState(true)
   const [author, setAuthor] = useState('')
 
   useEffect(() => {
@@ -16,17 +17,27 @@ export default function App() {
       .then(data => {
         setQuote(data.content)
         setAuthor(data.author)
+        setTimeout(() => {
+          setIsQuoteVisible(true)
+        }, 200)
       })
+  }
+
+  const handleNewQuote = () => {
+    setIsQuoteVisible(false)
+    setTimeout(() => {
+      fetchQuote()
+    }, 300)
   }
 
   return (
     <div className='wrapper'>
       <div id='quote-box'>
-        <h1 id='text'>
+        <h1 id='text' className={!isQuoteVisible ? 'invisible' : ''}>
           <FaQuoteLeft style={{ marginRight: 10 }}/>
           {quote}
         </h1>
-        <p id='author'>- {author}</p>
+        <p id='author' className={!isQuoteVisible ? 'invisible' : ''}>- {author}</p>
         <div className='button-container'>
           <a 
             id='tweet-quote' 
@@ -36,7 +47,7 @@ export default function App() {
           >
             <FaXTwitter size={20}/>
           </a>
-          <button id='new-quote' onClick={fetchQuote}>New quote</button>
+          <button id='new-quote' onClick={handleNewQuote}>New quote</button>
         </div>
       </div>
     </div>

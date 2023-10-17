@@ -20,6 +20,15 @@ body {
   max-width: 600px;
 }
 
+#text,
+#author {
+  transition: opacity 0.5s;
+}
+
+.invisible {
+  opacity :0;
+}
+
 #author {
   font-size: 20px;
   text-align: right;
