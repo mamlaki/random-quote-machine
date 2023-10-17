@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { FaXTwitter, FaQuoteLeft } from 'react-icons/fa6'
+import './App.css'
 
 export default function App() {
   const [quote, setQuote] = useState('')
@@ -20,10 +22,15 @@ export default function App() {
   return (
     <div className='wrapper'>
       <div id='quote-box'>
-        <h1 id='text'>{ quote }</h1>
+        <h1 id='text'>
+          <FaQuoteLeft style={{ marginRight: 10 }}/>
+          { quote }
+        </h1>
         <p id='author'>- { author }</p>
-        <button id='new-quote'>New quote</button>
-        <a id='tweet-quote' href='/' target='_blank'>Twitter/X Logo Placeholder</a>
+        <div className='button-container'>
+          <a id='tweet-quote' href='/' target='_blank'><FaXTwitter size={20}/></a>
+          <button id='new-quote'>New quote</button>
+        </div>
       </div>
     </div>
   )
