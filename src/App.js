@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FaXTwitter, FaQuoteLeft } from 'react-icons/fa6'
+import { FaXTwitter, FaQuoteLeft, FaGithub, FaGit } from 'react-icons/fa6'
 import './App.css'
 
 export default function App() {
@@ -69,6 +69,12 @@ export default function App() {
           <button id='new-quote' onClick={handleNewQuote} style={{backgroundColor: color}}>New quote</button>
         </div>
       </div>
+      <footer>
+        <span>© 2023 Melek Redwan</span>
+        <a href='https://github.com/mamlaki/random-quote-machine' target='_blank' rel='noopener noreferrer'>
+          <FaGithub size={24} />
+        </a>
+      </footer>
     </div>
   )
 }

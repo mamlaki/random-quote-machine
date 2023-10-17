@@ -44,19 +44,39 @@
 }
 
 button,
-a {
+.button-container a {
   background-color: #333;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.5s;
+  transition: background-color 0.5s, filter 0.5s;
   font-weight: bold;
 }
 
 button:hover,
-a:hover {
-  background-color: #555;
+.button-container a:hover {
+  filter: brightness(1.2);
   cursor: pointer;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 15px;
+}
+
+footer a {
+  color: white;
+  transition: filter 0.5s;
+}
+
+footer a:hover {
+  filter: brightness(0.8);
 }
